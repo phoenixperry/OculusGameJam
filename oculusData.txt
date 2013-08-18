@@ -1,0 +1,6 @@
+0.6804237is the maxX 
+0.0622255is the maxY 
+0.6250747is the maxZ 
+-0.5420665is the minX 
+-0.806262is the minY 
+-0.01652106is the minZ 
