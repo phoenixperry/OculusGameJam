@@ -2,7 +2,7 @@
 using System.Collections;
 using System.IO; 
 using System.Text; 
-public class OcuColor : MonoBehaviour {
+public class OcuColor2 : MonoBehaviour {
 	
 	public Camera leftCam; 
 	public Camera rightCam; 
@@ -57,8 +57,8 @@ public class OcuColor : MonoBehaviour {
 		//Debug.Log("x is" +leftVect.x%1 + "y is" + uint(leftVect.y%1)+ "z is"+ leftVect.z%1); 
 		
 		float numX = scaleRange(leftVect.x, -1, 1, 0,1); 
-		float numY = scaleRange(leftVect.x, -1, 1, 0,1); 
-		float numZ = scaleRange(leftVect.x, -1, 1, 0,1); 
+		float numY = scaleRange(leftVect.y, -1, 1, 0,1); 
+		float numZ = scaleRange(leftVect.z, -1, 1, 0,1); 
 
 		plane.gameObject.GetComponent<Renderer>( ).material.color = new Color( numX, numY, numZ);
 
