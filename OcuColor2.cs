@@ -14,13 +14,13 @@ public class OcuColor2 : MonoBehaviour {
 	private float maxX; 
 	private float maxY; 
 	private float maxZ;  
-
+	public Quaternion calibratedData; 
 
 	private float minX; 
 	private float minY; 
 	private float minZ;  
 
-	private Quaternion leftVect; 
+	public Quaternion leftVect; 
 	private string fileName; 
 	FileStream fs; 
 	//you are going to need an array list to pull all planes but for now... 
@@ -62,7 +62,13 @@ public class OcuColor2 : MonoBehaviour {
 
 		plane.gameObject.GetComponent<Renderer>( ).material.color = new Color( numX, numY, numZ);
 
-		Debug.Log(leftVect.x + "is the input val");
+		// float cdx = scaleRange(leftVect.x, 0, 1, -1,1); 
+		// float cdY = scaleRange(leftVect.y, 0, 1, -1,1); 
+		// float cdZ = scaleRange(leftVect.z, 0, 1, -1,1); 
+
+		calibratedData = leftVect; 
+		
+	//	Debug.Log(leftVect.x + "is the input val");
 
 		path = Application.dataPath +fileName; 
 
@@ -85,8 +91,7 @@ public class OcuColor2 : MonoBehaviour {
 			AddText(fs, minZ.ToString()); 
 			AddText	(fs, "is the minZ \n"); 
 
-			Debug.Log("endTest " + minZ)
-;
+			//Debug.Log("endTest " + minZ);
 			// AddText(fs, leftVect.x.ToString());
 			// AddText(fs, " is the x value \n");
 			// AddText(fs, leftVect.y.ToString());
@@ -104,10 +109,10 @@ public class OcuColor2 : MonoBehaviour {
 
 		value =  value - inputMin; 
 		float scaled =   (outputMax-outputMin)/(inputMax-inputMin); 
-		Debug.Log(scaled + " i am the scale"); 
+		//Debug.Log(scaled + " i am the scale"); 
 		value = value * scaled;
 		value = value + outputMin; 
-		Debug.Log(value + "i am the val"); 
+		//Debug.Log(value + "i am the val"); 
 		return value; 
 
 	} 
