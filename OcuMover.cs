@@ -2,7 +2,7 @@
 using System.Collections;
  
 public class OcuMover : MonoBehaviour {
-	public float moveSpeed= 0.3f; 
+	public float moveSpeed= 15.0f; 
 //	public GameObject oculusValueExtrator; 
 	public Camera leftCam;
 
@@ -22,9 +22,10 @@ public class OcuMover : MonoBehaviour {
 		//checkPosition();
 		
 		//must be quaterion * vect to work for overload but this will move the oculus with the rotation 
-		Vector3 fwd = leftCam.GetComponent<Transform>().rotation * Vector3.forward  * Time.deltaTime *moveSpeed;  
-				fwd = -fwd; 
-				transform.Translate(fwd);
+		Vector3 fwd = leftCam.GetComponent<Transform>().rotation * Vector3.forward  * (Time.deltaTime *moveSpeed);  
+				 //fwd = fwd*-1; 
+				 Rigidbody  myBody = GetComponent<Rigidbody>() as Rigidbody;
+				 myBody.AddForce(fwd);
  
 	
 	}
